@@ -57,8 +57,18 @@ const config = {
         ],
       },
       {
-        test: /\.(jpe?g|png)/,
-        use: "file-loader",
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        generator: {
+          filename: `image/[name][ext]`,
+        },
+        type: "asset/resource",
+      },
+      {
+        test: /\.(ttf|otf|woff)/,
+        generator: {
+          filename: `font/[name][ext]`,
+        },
+        type: "asset/resource",
       },
       {
         test: /\.html$/i,
